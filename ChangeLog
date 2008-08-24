@@ -1,5 +1,10 @@
 (add new changes on top of this file)
-08-08-21 Till Korten  <webmaster@korten-rivat.de>
+08-08-24 Till Korten  <webmaster@korten-rivat.de>
+	* Bugfix: caption text works now
+	* renderMethods ul and div work now
+	* Manual updated
+
+08-08-24 Till Korten  <webmaster@korten-rivat.de>
 	* New feature: Image effect as highlight effect
 	* Added Manual
 	* Code cleanup
