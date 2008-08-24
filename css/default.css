@@ -6,32 +6,31 @@
 }
 .mousehover {
 }
-.mousehover .csc-textpic-caption {
-	display:none;
-	position:absolute;
-	z-index:99;
-	background-color:#ffc;
-	border:1px solid #fc6;
-}
 .mousehover:hover .showmouse, .jsshow {
 	display:inline;
 }
 .mousehover:hover .hidemouse, .jshide {
 	display:none;
 }
-/*.mousehover:hover .csc-textpic-caption {
-	visibility:visible;
-}*/
-.tx_mouseover-caption-box {
+.csc-textpic-image {
+	margin-bottom:10px !important;
+}
+/*.tx_mouseover-caption-box {
 	display:block;
 	min-height: 3em;
+}
+.mousehover:hover .csc-textpic-caption {
+	visibility:visible;
+}
+.mousehover .csc-textpic-caption {
+	position:absolute;
+	z-index:99;
+	background-color:#ffc;
+	border:1px solid #fc6;
 }
 .tx_mouseover-caption, .tx_mouseover-caption-standard {
 	position:absolute;
 	top:0px;
 	display:none;
 }
-.tx_mouseover-caption-standard {visibility:visible;}
-.csc-textpic-image {
-	margin-bottom:10px !important;
-}
+.tx_mouseover-caption-standard {visibility:visible;}*/
