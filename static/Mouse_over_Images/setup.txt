@@ -60,7 +60,18 @@ tt_content.image.25 {
 	rendering.dl.imgTagStdWrap.wrap >
 	rendering.dl.oneImageStdWrap.dataWrap=<div class="{$plugin.tx_mouseoverimages.mouseoverContainerClass}"><dl class="csc-textpic-image###CLASSES###" style="width:{register:imagewidth}px;height:{register:imageheight}px;"> | </dl></div>
 #	rendering.dl.caption.wrap = <dd class="csc-textpic-caption showmouse"> | </dd>
-	caption.dataWrap = <dd class="csc-textpic-caption showmouse" style="top:{register:imageheight}px;> | </dd>
+
+	rendering.ul.imgTagStdWrap >
+	rendering.ul.imgTagStdWrap < tt_content.image.25.rendering.dl.imgTagStdWrap
+	rendering.ul.imgTagStdWrap.dataWrap={register:overlayimage}<span class="{$plugin.tx_mouseoverimages.mouseoverAppearClass}">|</span>
+	rendering.ul.oneImageStdWrap.dataWrap=<li class="{$plugin.tx_mouseoverimages.mouseoverContainerClass} csc-textpic-image###CLASSES###" style="width:{register:imagewidth}px;height:{register:imageheight}px;"> | </li>
+
+	rendering.div.imgTagStdWrap >
+	rendering.div.imgTagStdWrap < tt_content.image.25.rendering.dl.imgTagStdWrap
+	rendering.div.imgTagStdWrap.dataWrap=<div>{register:overlayimage}<span class="{$plugin.tx_mouseoverimages.mouseoverAppearClass}">|</span></div>
+	rendering.div.oneImageStdWrap.dataWrap=<div class="{$plugin.tx_mouseoverimages.mouseoverContainerClass} csc-textpic-image###CLASSES###" style="width:{register:imagewidth}px;height:{register:imageheight}px;"> | </div>
+
+#	caption.dataWrap = <p class="csc-textpic-caption showmouse" style="top:{register:imageheight}px;> | </p>
 	required = 1
 	stdWrap.if {
 		value = 0

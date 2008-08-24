@@ -78,7 +78,7 @@ class tx_mouseoverimages_pi1 extends tslib_pibase {
 		$GLOBALS['TSFE']->register['overlayimage'] = $this->cObj->IMAGE($imgConf);
 		
 		if ($conf['debug']) {
-			debug($GLOBALS['TCA']);
+			debug($GLOBALS['TSFE']->register['overlayimage']);
 		}
 		
 
