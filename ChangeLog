@@ -1,0 +1,13 @@
+(add new changes on top of this file)
+08-08-21 Till Korten  <webmaster@korten-rivat.de>
+	* New feature: Image effect as highlight effect
+	* Added Manual
+	* Code cleanup
+
+08-08-21 Till Korten  <webmaster@korten-rivat.de>
+	* Bugfix: now the HTML code is valid XHTML (validated by balidator.w3c.org)
+	* Code cleanup: now contains XCLASS reference
+
+08-08-07 Till Korten  <webmaster@korten-rivat.de>
+
+	* Initial release

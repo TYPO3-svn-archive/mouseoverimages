@@ -1,0 +1,6 @@
+# mouse over image constants
+plugin.tx_mouseoverimages.mouseoverContainerClass = mousehover
+plugin.tx_mouseoverimages.mouseoverHideClass = hidemouse
+plugin.tx_mouseoverimages.mouseoverAppearClass = showmouse
+plugin.tx_mouseoverimages.image.field = tx_mouseoverimages_mouseoverimages
+plugin.tx_mouseoverimages.mouseoverCaptionStandardText = Fahren Sie mit der Maus über die Schaltflächen, um die Bilder anzuzeigen.

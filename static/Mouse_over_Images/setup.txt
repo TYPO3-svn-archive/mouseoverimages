@@ -1,0 +1,95 @@
+# include our css and javascript code necessary for the mouseover effects
+page.includeCSS.file099 = EXT:mouseoverimages/css/default.css
+page.headerData.99 = FILE
+page.headerData.99 {
+	file = EXT:mouseoverimages/css/ie7.css
+	wrap (
+<!--[if gte IE 7]>
+	<style type="text/css">|
+	
+	</style>
+	<![endif]-->
+)
+}
+page.includeJS.file099 = EXT:mouseoverimages/css/hover.js
+
+# include the php class that loads the overlayimage into the register overlayimage this could probably be done in Typoscript but I was lazy
+includeLibs.tx_mouseoverimages_pi1 = EXT:mouseoverimages/pi1/class.tx_mouseoverimages_pi1.php
+
+# include a check if the overlayimages are enabled
+tt_content.image.20.stdWrap.if {
+	value = 0
+	equals.field = tx_mouseoverimages_enableoverlay
+}
+tt_content.textpic.20.stdWrap.if < tt_content.image.20.stdWrap.if
+
+# if overlay is enabled, manipulate the image TypoScript to show the overlayimages
+tt_content.image.25 < tt_content.image.20
+tt_content.image.25 {
+	image_effects.override = 25
+	image_effects.override {
+		if {
+			value = 0
+			equals < tt_content.image.20.image_effects
+			isTrue.field = tx_mouseoverimages_highlight
+		}
+	}
+	rendering.dl.imgTagStdWrap.preUserFunc = tx_mouseoverimages_pi1->registerOverlayImages
+	rendering.dl.imgTagStdWrap.preUserFunc {
+		overlayImgList.field = tx_mouseoverimages_overlayimages
+		overlayImgList.override < tt_content.image.25.imgList
+		overlayImgList.override {
+			if {
+				value = 1
+				equals.field = tx_mouseoverimages_highlight
+			}
+		}
+		overlayImgPath = uploads/tx_mouseoverimages/
+		overlayImgPath.override < tt_content.image.25.imgPath
+		overlayImgPath.override {
+			if {
+				value = 1
+				equals.field = tx_mouseoverimages_highlight
+			}
+		}
+		params = class="{$plugin.tx_mouseoverimages.mouseoverHideClass}"
+		imgNumCurr.data = register:IMAGE_NUM_CURRENT
+		altText < tt_content.image.22.1.altText 
+	}
+	rendering.dl.imgTagStdWrap.dataWrap=<dt>{register:overlayimage}<span class="{$plugin.tx_mouseoverimages.mouseoverAppearClass}">|</span></dt>
+	rendering.dl.imgTagStdWrap.wrap >
+	rendering.dl.oneImageStdWrap.dataWrap=<div class="{$plugin.tx_mouseoverimages.mouseoverContainerClass}"><dl class="csc-textpic-image###CLASSES###" style="width:{register:imagewidth}px;height:{register:imageheight}px;"> | </dl></div>
+#	rendering.dl.caption.wrap = <dd class="csc-textpic-caption showmouse"> | </dd>
+	caption.dataWrap = <dd class="csc-textpic-caption showmouse" style="top:{register:imageheight}px;> | </dd>
+	required = 1
+	stdWrap.if {
+		value = 0
+		equals.field = tx_mouseoverimages_enableoverlay
+		negate = 1
+	}
+
+}
+tt_content.textpic.25 = < tt_content.image.25
+tt_content.textpic.25 {
+	text.10 = COA
+	text.10 {
+		if.value = 24
+		if.isGreaterThan.field = imageorient
+		10 = < lib.stdheader
+		10.stdWrap.dataWrap = <div class="csc-textpicHeader csc-textpicHeader-{field:imageorient}">|</div>
+	}
+	text.20 = < tt_content.text.20
+	text.wrap = <div class="csc-textpic-text"> | </div>
+}
+#this could be used to show the captions in a box below the images, but it needs some more javascript to work
+#tt_content.image.26 = TEXT
+#tt_content.image.26 {
+#	field = imagecaption
+#	split {
+#		token.char = 10
+#		cObjNum = 1
+#		1.current = 1
+#		1.dataWrap = <div class="tx_mouseover-caption" id="tx_mouseover-caption-nr-{register:SPLIT_COUNT}">|</div>
+#	}
+#	dataWrap = <div class="tx_mouseover-caption-box"><div class="tx_mouseover-caption-standard">{$plugin.tx_mouseoverimages.mouseoverCaptionStandardText}</div>|</div>
+#}
