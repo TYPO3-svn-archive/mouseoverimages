@@ -1,5 +1,8 @@
 (add new changes on top of this file)
-08-08-24 Till Korten  <webmaster@korten-rivat.de>
+08-08-25 Till Korten  <webmaster@korten-rivat.de>
+	* Bugfix: reverted to old manual template to avoid rendering problems.
+
+08-08-25 Till Korten  <webmaster@korten-rivat.de>
 	* Bugfix: caption text works now
 	* renderMethods ul and div work now
 	* Manual updated
